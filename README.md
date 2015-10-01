@@ -37,6 +37,12 @@ On Debian/Ubuntu you can install the above packages by running the following com
 
 	sudo apt-get install libboost-serialization-dev libboost-program-options-dev libboost-graph-dev qtbase5-dev qtbase5-dev-tools
 
+On Mac OS X you can install the above two pacakages (i.e., libboost-serialization-dev libboost-program-options-dev) through MacPorts.
+
+- [MacPorts](www.macports.org/ports.php)
+	 
+	    	- sudo port install boost
+
 The following additional packages may be needed for building C++ code:
 
     sudo apt-get install build-essential cmake pkg-config
