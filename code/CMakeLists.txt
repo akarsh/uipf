@@ -135,6 +135,11 @@ add_library(GradientModule SHARED modules/improc/GradientModule.cpp)
 qt5_use_modules(GradientModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(GradientModule opencv_core opencv_imgproc ModuleBase)
 
+
+add_library(LaplaceModule SHARED modules/improc/LaplaceModule.cpp)
+qt5_use_modules(LaplaceModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(LaplaceModule opencv_core opencv_imgproc ModuleBase)
+
 #for live demo...
 #add_library(ResizeModule SHARED modules/improc/ResizeModule.cpp)
 #qt5_use_modules(ResizeModule Core ) #QtCore is needed for <QPlugin>

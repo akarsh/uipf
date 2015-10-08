@@ -1,0 +1,18 @@
+laplace:
+  module: laplace
+  input:
+    image: load image.image
+  sigmaX: 3
+  sigmaY: 3
+  windowSize: 7
+load image:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+show image:
+  module: showImage
+  input:
+    image: laplace.image
+  autoclose: ""
+  blocking: ""
+  title: ""
