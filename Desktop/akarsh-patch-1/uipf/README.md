@@ -37,29 +37,9 @@ On Debian/Ubuntu you can install the above packages by running the following com
 
 	sudo apt-get install libboost-serialization-dev libboost-program-options-dev libboost-graph-dev qtbase5-dev qtbase5-dev-tools
 
-On Mac OS X you can install the above two pacakages (i.e., libboost-serialization-dev libboost-program-options-dev) through MacPorts.
-
-- [MacPorts](www.macports.org/ports.php)
-	 
-	    	- sudo port install boost
-
 The following additional packages may be needed for building C++ code:
 
     sudo apt-get install build-essential cmake pkg-config
-    
-To install additional packages on Mac OS X
-
-    sudo port cmake pkgconfig 
-    
-Alternative method for this installing package "build-essential" on Mac OS X.  You need to install XCode & command line developer tools from Apple store.
-
-To install command line developer tools via Terminal:
-	
-    xcode-select --install
-	
-To check gcc version on Mac OS X, in order to be sure of proper installation of dependencies for building C++ code,
-	
-    gcc --version
 
 If you want to work on the GUI, you may also want to install Qt Creator:
 To install Qt5, you can download '.run' offline or online installer from qt open source community download (https://www.qt.io/download-open-source/#section-2)
