@@ -1,0 +1,26 @@
+# temporary files
+*~
+.*.swp
+
+# LaTeX
+
+/*/out
+
+*.toc
+*.aux
+*.log
+*.bbl
+*.blg
+*.nav
+*.synctex.gz
+*.out
+*.snm
+
+# Windows Thumbs.db
+
+Thumbs.db
+
+# openoffice lock
+
+.~lock.*#
+
