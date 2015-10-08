@@ -1,5 +1,4 @@
 #include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "GradientModule.hpp"
 
@@ -25,8 +24,9 @@ void GradientModule::run( DataManager& data) const
 	int c;
 
 	// read the params (window size and sigma) given for this step
-	int nWindowSize = data.getParam<int>("windowSize",-1);
-	double dSigma = data.getParam<double>("sigma",0.0);
+	int nWindowSize = data.getParam<int>("windowSize", 0);
+	double sigmaX = data.getParam<double>("sigmaX",0.0);
+	double sigmaY = data.getParam<double>("sigmaY",0.0);
 
 	// get a pointer to the "image" input data
 	Matrix::c_ptr oMatrix = data.getInputData<Matrix>("image");
@@ -34,7 +34,7 @@ void GradientModule::run( DataManager& data) const
 	Mat m = oMatrix->getContent();
 
 	// do gaussian blur using opencv
-	GaussianBlur(m,m,Size( nWindowSize, nWindowSize ), dSigma, dSigma );
+	GaussianBlur(m,m,Size( nWindowSize, nWindowSize ), sigmaX, sigmaY, BORDER_DEFAULT );
 
 	// Declare the new source for the grayscale data
 	Mat m_gray;
@@ -63,26 +63,28 @@ void GradientModule::run( DataManager& data) const
 	addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad );
 
 	// set the result (output) on the datamanager
-	data.setOutputData("image",new Matrix(m_gray));
+	data.setOutputData("image",new Matrix(grad));
 
 }
 
 // returns the meta data of this module
-MetaData GaussianModule::getMetaData() const
+MetaData GradientModule::getMetaData() const
 {
 	map<string, DataDescription> input = {
-		{"image", DataDescription(MATRIX, "the image to apply the filter and convert to grayscale on.") }
+		{"image", DataDescription(MATRIX, "the image to apply the filter on.") }
 	};
 	map<string, DataDescription> output = {
 		{"image", DataDescription(MATRIX, "the result image.") }
 	};
 	map<string, ParamDescription> params = {
-		{"windowSize", ParamDescription("window size of the kernel.") },
-		{"sigma", ParamDescription("variance of the gaussian kernel.") }
+		{"windowSize", ParamDescription("window size of the kernel. Must be an odd number. Optional, defaults to 0 which means that it is calculated based on sigma.", true) },
+		{"sigmaX", ParamDescription("variance of the gaussian kernel in X direction.") },
+		{"sigmaY", ParamDescription("variance of the gaussian kernel in Y direction. Optional, defaults to sigmaX.", true) }
 	};
 
 	return MetaData(
-		"Applies Gaussian blurring to an image.  Then converts the image into grayscale",
+		"Applies Gaussian blurring to an image using openCV.",
+		"Image Processing",
 		input,
 		output,
 		params
