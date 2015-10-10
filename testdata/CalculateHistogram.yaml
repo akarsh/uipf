@@ -1,0 +1,15 @@
+calchist:
+  module: calculate histogram
+  input:
+    image: im1.image
+im1:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+shw1:
+  module: showImage
+  input:
+    image: calchist.image
+  autoclose: ""
+  blocking: ""
+  title: ""

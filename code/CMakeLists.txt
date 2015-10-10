@@ -140,6 +140,14 @@ add_library(LaplaceModule SHARED modules/improc/LaplaceModule.cpp)
 qt5_use_modules(LaplaceModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(LaplaceModule opencv_core opencv_imgproc ModuleBase)
 
+add_library(HistogramEqualizationModule SHARED modules/improc/HistogramEqualizationModule.cpp)
+qt5_use_modules(HistogramEqualizationModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(HistogramEqualizationModule opencv_core opencv_imgproc ModuleBase)
+
+add_library(CalculateHistModule SHARED modules/improc/CalculateHistModule.cpp)
+qt5_use_modules(CalculateHistModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(CalculateHistModule opencv_core opencv_imgproc ModuleBase)
+
 #for live demo...
 #add_library(ResizeModule SHARED modules/improc/ResizeModule.cpp)
 #qt5_use_modules(ResizeModule Core ) #QtCore is needed for <QPlugin>

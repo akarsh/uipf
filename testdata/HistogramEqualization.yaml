@@ -1,0 +1,15 @@
+histogram equalization:
+  module: histogramequalization
+  input:
+    image: load image.image
+load image:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+show image:
+  module: showImage
+  input:
+    image: histogram equalization.image
+  autoclose: ""
+  blocking: ""
+  title: ""

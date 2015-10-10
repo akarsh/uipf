@@ -1,0 +1,44 @@
+calceqhistim1:
+  module: calculate histogram
+  input:
+    image: eqhistim1.image
+calchistim1:
+  module: calculate histogram
+  input:
+    image: im1.image
+eqhistim1:
+  module: histogramequalization
+  input:
+    image: im1.image
+im1:
+  module: loadImage
+  filename: Lenna.png
+  mode: grayscale
+shwcalceqhistim1:
+  module: showImage
+  input:
+    image: calceqhistim1.image
+  autoclose: ""
+  blocking: ""
+  title: ""
+shwcalchistim1:
+  module: showImage
+  input:
+    image: calchistim1.image
+  autoclose: ""
+  blocking: ""
+  title: ""
+shweqhistim1:
+  module: showImage
+  input:
+    image: eqhistim1.image
+  autoclose: ""
+  blocking: ""
+  title: ""
+shwim1:
+  module: showImage
+  input:
+    image: im1.image
+  autoclose: ""
+  blocking: ""
+  title: ""
