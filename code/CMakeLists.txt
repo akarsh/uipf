@@ -109,14 +109,31 @@ add_library(LongRunningDummyModule SHARED modules/dummy/LongRunningDummyModule.c
 qt5_use_modules(LongRunningDummyModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(LongRunningDummyModule ModuleBase)
 
+add_library(SFDetModule SHARED modules/dummy/SFDetModule.cpp)
+qt5_use_modules(SFDetModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(SFDetModule opencv_core opencv_imgproc ModuleBase)
+
+
 # I/O
 add_library(LoadImageModule SHARED modules/io/LoadImageModule.cpp)
 qt5_use_modules(LoadImageModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(LoadImageModule opencv_core ModuleBase)
 
+add_library(LoadImageTwoModule SHARED modules/io/LoadImageTwoModule.cpp)
+qt5_use_modules(LoadImageTwoModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(LoadImageTwoModule opencv_core ModuleBase)
+
+# add_library(LoadRatModule SHARED modules/io/LoadRatModule.cpp)
+# qt5_use_modules(LoadRatModule Core ) #QtCore is needed for <QPlugin>
+# target_link_libraries(LoadRatModule opencv_core ModuleBase)
+
 add_library(StoreImageModule SHARED modules/io/StoreImageModule.cpp)
 qt5_use_modules(StoreImageModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(StoreImageModule opencv_core ModuleBase)
+
+add_library(ShowImageTwoModule SHARED modules/io/ShowImageTwoModule.cpp)
+qt5_use_modules(ShowImageTwoModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(ShowImageTwoModule opencv_core ModuleBase)
 
 add_library(ShowImageModule SHARED modules/io/ShowImageModule.cpp)
 qt5_use_modules(ShowImageModule Core ) #QtCore is needed for <QPlugin>
@@ -148,6 +165,10 @@ add_library(CalculateHistModule SHARED modules/improc/CalculateHistModule.cpp)
 qt5_use_modules(CalculateHistModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(CalculateHistModule opencv_core opencv_imgproc ModuleBase)
 
+add_library(FeaturesColorModule SHARED modules/improc/FeaturesColorModule.cpp)
+qt5_use_modules(FeaturesColorModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(FeaturesColorModule opencv_core opencv_imgproc ModuleBase)
+
 #for live demo...
 #add_library(ResizeModule SHARED modules/improc/ResizeModule.cpp)
 #qt5_use_modules(ResizeModule Core ) #QtCore is needed for <QPlugin>
@@ -164,6 +185,10 @@ target_link_libraries(SplitChannelsModule opencv_core opencv_imgproc ModuleBase)
 add_library(MergeChannelsModule SHARED modules/improc/MergeChannelsModule.cpp)
 qt5_use_modules(MergeChannelsModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(MergeChannelsModule opencv_core opencv_imgproc ModuleBase)
+
+add_library(FeaturesBinaryModule SHARED modules/improc/FeaturesBinaryModule.cpp)
+qt5_use_modules(FeaturesBinaryModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(FeaturesBinaryModule opencv_core opencv_imgproc ModuleBase)
 
 
 # Data structures

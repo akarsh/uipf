@@ -1,0 +1,15 @@
+fbm:
+  module: features binary
+  input:
+    image: lm1.image
+lm1:
+  module: loadImage
+  filename: Lenna.png
+  mode: grayscale
+shw1:
+  module: showImage
+  input:
+    image: fbm.image
+  autoclose: ""
+  blocking: ""
+  title: ""
