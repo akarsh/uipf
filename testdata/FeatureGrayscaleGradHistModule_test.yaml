@@ -1,0 +1,58 @@
+cnt:
+  module: showImage
+  input:
+    image: fggdd.cnt
+  autoclose: ""
+  blocking: ""
+  title: ""
+fggdd:
+  module: features grayscale gradhist
+  input:
+    image: imld1.image
+  boxSize: 11
+imld1:
+  module: loadImage
+  filename: Lenna.png
+  mode: "grayscale"
+mean:
+  module: showImage
+  input:
+    image: fggdd.mean
+  autoclose: ""
+  blocking: ""
+  title: ""
+std:
+  module: showImage
+  input:
+    image: fggdd.std
+  autoclose: ""
+  blocking: ""
+  title: ""
+pmr:
+  module: showImage
+  input:
+    image: fggdd.pmr
+  autoclose: ""
+  blocking: ""
+  title: ""
+skw:
+  module: showImage
+  input:
+    image: fggdd.skw
+  autoclose: ""
+  blocking: ""
+  title: ""
+hom:
+  module: showImage
+  input:
+    image: fggdd.hom
+  autoclose: ""
+  blocking: ""
+  title: ""
+kur:
+  module: showImage
+  input:
+    image: fggdd.kur
+  autoclose: ""
+  blocking: ""
+  title: ""

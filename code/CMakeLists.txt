@@ -190,6 +190,13 @@ add_library(FeaturesBinaryModule SHARED modules/improc/FeaturesBinaryModule.cpp)
 qt5_use_modules(FeaturesBinaryModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(FeaturesBinaryModule opencv_core opencv_imgproc ModuleBase)
 
+add_library(FeaturesGrayscaleLocalStatModule SHARED modules/improc/FeaturesGrayscaleLocalStatModule.cpp)
+qt5_use_modules(FeaturesGrayscaleLocalStatModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(FeaturesGrayscaleLocalStatModule opencv_core opencv_imgproc ModuleBase)
+
+add_library(FeaturesGrayscaleGradHistModule SHARED modules/improc/FeaturesGrayscaleGradHistModule.cpp)
+qt5_use_modules(FeaturesGrayscaleGradHistModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(FeaturesGrayscaleGradHistModule opencv_core opencv_imgproc ModuleBase)
 
 # Data structures
 add_library(SelectListItemModule SHARED modules/data/SelectListItemModule.cpp)

@@ -1,0 +1,65 @@
+cnt:
+  module: showImage
+  input:
+    image: fgd.cnt
+  autoclose: ""
+  blocking: ""
+  title: ""
+fgd:
+  module: features grayscale
+  input:
+    image: im1.image
+  boxSize: 64
+hom:
+  module: showImage
+  input:
+    image: fgd.hom
+  autoclose: ""
+  blocking: ""
+  title: ""
+im1:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+kur:
+  module: showImage
+  input:
+    image: fgd.kur
+  autoclose: ""
+  blocking: ""
+  title: ""
+pmr:
+  module: showImage
+  input:
+    image: fgd.pmr
+  autoclose: ""
+  blocking: ""
+  title: ""
+skw:
+  module: showImage
+  input:
+    image: fgd.skw
+  autoclose: ""
+  blocking: ""
+  title: ""
+std:
+  module: showImage
+  input:
+    image: fgd.std
+  autoclose: ""
+  blocking: ""
+  title: ""
+tamcnt:
+  module: showImage
+  input:
+    image: fgd.tamcnt
+  autoclose: ""
+  blocking: ""
+  title: ""
+tamcoa:
+  module: showImage
+  input:
+    image: fgd.tamcoa
+  autoclose: ""
+  blocking: ""
+  title: ""

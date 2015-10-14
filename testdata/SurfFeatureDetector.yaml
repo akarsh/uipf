@@ -1,0 +1,22 @@
+im1:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+im2:
+  module: loadImageTwo
+  filename: Lenna_rot.png
+  mode: ""
+shwim1:
+  module: showImage
+  input:
+    image: im1.image
+  autoclose: ""
+  blocking: ""
+  title: ""
+shwim2:
+  module: showImageTwo
+  input:
+    image_2: im2.image_2
+  autoclose: ""
+  blocking: ""
+  title: ""
