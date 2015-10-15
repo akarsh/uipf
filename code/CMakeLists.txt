@@ -202,6 +202,10 @@ add_library(BilateralFilterModule SHARED modules/improc/BilateralFilterModule.cp
 qt5_use_modules(BilateralFilterModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(BilateralFilterModule opencv_core opencv_imgproc ModuleBase)
 
+add_library(ColorMapModule SHARED modules/improc/ColorMapModule.cpp)
+qt5_use_modules(ColorMapModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(ColorMapModule opencv_core opencv_imgproc ModuleBase)
+
 # Data structures
 add_library(SelectListItemModule SHARED modules/data/SelectListItemModule.cpp)
 qt5_use_modules(SelectListItemModule Core ) #QtCore is needed for <QPlugin>

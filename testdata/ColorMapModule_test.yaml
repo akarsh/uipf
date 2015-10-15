@@ -1,0 +1,15 @@
+colormap:
+  module: color map
+  input:
+    image: im1.image
+im1:
+  module: loadImage
+  filename: Grayscale_image.png
+  mode: ""
+shw1:
+  module: showImage
+  input:
+    image: colormap.COLORMAP_AUTUMN
+  autoclose: ""
+  blocking: ""
+  title: ""
