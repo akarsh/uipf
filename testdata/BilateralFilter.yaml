@@ -1,0 +1,24 @@
+bf:
+  module: bilateral filter
+  input:
+    image: im1.image
+  MAX_KERNEL_LENGTH: ""
+conv:
+  module: convolution
+  input:
+    image: bf.image
+    kernel: im1.image
+  anchorX: ""
+  anchorY: ""
+  delta: ""
+im1:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+shw:
+  module: showImage
+  input:
+    image: bf.image
+  autoclose: ""
+  blocking: ""
+  title: ""
