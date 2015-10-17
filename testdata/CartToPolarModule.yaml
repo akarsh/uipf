@@ -1,0 +1,22 @@
+cart:
+  module: cartToPolar
+  input:
+    image: im.image
+im:
+  module: loadImage
+  filename: Lenna.png
+  mode: grayscale
+orient mean:
+  module: showImage
+  input:
+    image: cart.orient_mean
+  autoclose: ""
+  blocking: ""
+  title: ""
+orient norm:
+  module: showImage
+  input:
+    image: cart.orient_norm
+  autoclose: ""
+  blocking: ""
+  title: ""

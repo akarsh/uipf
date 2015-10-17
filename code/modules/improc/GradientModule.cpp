@@ -21,8 +21,7 @@ void GradientModule::run( DataManager& data) const
 	int scale = 1;
   	int delta = 0;
   	int ddepth = CV_16S;
-	int c;
-
+  	
 	// read the params (window size and sigma) given for this step
 	int nWindowSize = data.getParam<int>("windowSize", 0);
 	double sigmaX = data.getParam<double>("sigmaX",0.0);

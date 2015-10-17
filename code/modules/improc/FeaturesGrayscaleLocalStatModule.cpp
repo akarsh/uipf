@@ -44,8 +44,6 @@ void FeaturesGrayscaleLocalStatModule::run( DataManager& data) const
 
   int new_x, new_y;
   
-  
-  vector<Point2d> grid;
   double cur_mean, cur_var, cur_pmr, cur_skw, cur_kur, cur_cnt, cur_hom, cur_tamcnt;
   for(int y=0; y<img.rows; y++)
    {

@@ -206,6 +206,10 @@ add_library(ColorMapModule SHARED modules/improc/ColorMapModule.cpp)
 qt5_use_modules(ColorMapModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(ColorMapModule opencv_core opencv_imgproc ModuleBase)
 
+add_library(CartToPolarModule SHARED modules/improc/CartToPolarModule.cpp)
+qt5_use_modules(CartToPolarModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(CartToPolarModule opencv_core opencv_imgproc ModuleBase)
+
 # Data structures
 add_library(SelectListItemModule SHARED modules/data/SelectListItemModule.cpp)
 qt5_use_modules(SelectListItemModule Core ) #QtCore is needed for <QPlugin>
