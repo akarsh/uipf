@@ -1,0 +1,16 @@
+lm:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+shw:
+  module: showImage
+  input:
+    image: single pol.kSmall
+  autoclose: ""
+  blocking: ""
+  title: ""
+single pol:
+  module: FeaturesSinglePol
+  input:
+    image: lm.image
+  winSize: 11
