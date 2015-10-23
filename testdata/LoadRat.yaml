@@ -1,0 +1,10 @@
+load rat:
+  module: loadRat
+  filename: oph_lexi.rat
+show rat:
+  module: showImage
+  input:
+    image: load rat.real
+  autoclose: ""
+  blocking: ""
+  title: ""

@@ -143,6 +143,10 @@ add_library(ShowImageListModule SHARED modules/io/ShowImageListModule.cpp)
 qt5_use_modules(ShowImageListModule Core ) #QtCore is needed for <QPlugin>
 target_link_libraries(ShowImageListModule opencv_core opencv_imgproc opencv_highgui ModuleBase)
 
+add_library(LoadRatModule SHARED modules/io/LoadRatModule.cpp)
+qt5_use_modules(LoadRatModule Core ) #QtCore is needed for <QPlugin>
+target_link_libraries(LoadRatModule opencv_core opencv_imgproc opencv_highgui ModuleBase)
+
 # Image Processing
 add_library(GaussianModule SHARED modules/improc/GaussianModule.cpp)
 qt5_use_modules(GaussianModule Core ) #QtCore is needed for <QPlugin>
