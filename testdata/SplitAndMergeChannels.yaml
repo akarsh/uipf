@@ -1,0 +1,25 @@
+load image:
+  module: loadImage
+  filename: Lenna.png
+  mode: ""
+merge channel:
+  module: mergeChannels
+  input:
+    channels: split channel.channels
+show image:
+  module: showImage
+  input:
+    image: merge channel.image
+  autoclose: ""
+  blocking: ""
+  title: ""
+showimage list:
+  module: showImageList
+  input:
+    imageList: split channel.channels
+  blocking: ""
+  title: ""
+split channel:
+  module: splitChannels
+  input:
+    image: load image.image

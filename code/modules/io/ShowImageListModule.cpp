@@ -33,7 +33,7 @@ void ShowImageModule::run( DataManager& data) const
 MetaData ShowImageModule::getMetaData() const
 {
 	map<string, DataDescription> input = {
-		{"imageList", DataDescription(MATRIX_LIST, "the list of images to show.") },
+		{"imageList", DataDescription(MATRIX_LIST, "the list of images to show.") }
 
 	};
 	map<string, ParamDescription> params = {

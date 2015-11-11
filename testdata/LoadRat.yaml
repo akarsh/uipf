@@ -1,10 +1,21 @@
-load rat:
+Load Rat:
   module: loadRat
   filename: oph_lexi.rat
-show rat:
+Show Rat:
+  module: showRat
+  input:
+    channels: Load Rat.channels
+show image:
   module: showImage
   input:
-    image: load rat.real
+    image: Show Rat.image2
+  autoclose: ""
+  blocking: ""
+  title: ""
+show image2:
+  module: showImageTwo
+  input:
+    image_2: Show Rat.image2
   autoclose: ""
   blocking: ""
   title: ""
