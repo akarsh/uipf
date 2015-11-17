@@ -42,47 +42,61 @@ void ShowRatModule::run( DataManager& data) const
     if(cov.size()==2)
     {
      split(cov.at(0), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      red = channels.at(0).clone();
      split(cov.at(1), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      green = channels.at(0).clone();
      blue = (red+green)/2;
     }
     else if(cov.size()==3)
     {
      split(cov.at(0), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      red = channels.at(0).clone();
      split(cov.at(1), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      green = channels.at(0).clone();
      split(cov.at(2), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      blue = channels.at(0).clone();
     }
     else if(cov.size()==4)
     {
      split(cov.at(0), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      red = channels.at(0).clone();
      split(cov.at(1), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      green = channels.at(0).clone();
      split(cov.at(2), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      blue1 = channels.at(0).clone();
      split(cov.at(3), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      blue2 = channels.at(0).clone();
      blue = (blue1+blue2)/2;
     }
     else if(cov.size()==9)
     {
      split(cov.at(0), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      red = channels.at(0).clone();
      split(cov.at(4), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      green = channels.at(0).clone();
      split(cov.at(8), channels);
+     cartToPolar(channels.at(0), channels.at(1),channels.at(0), channels.at(1));
      blue = channels.at(0).clone();
     }
 
 //    if (this->path.find("oph") != string::npos){
 //    LOG_E("use log");
+
    red = red + 1;
    green = green + 1;
    blue = blue + 1;
+
 //    log(red, red);
 //    log(green, green);
 //    log(blue, blue);
@@ -106,7 +120,6 @@ void ShowRatModule::run( DataManager& data) const
 //     threshold(red2, red2, 2.5*mean(red2).val[0], 0, THRESH_TRUNC);
 //     threshold(green2, green2, 2.5*mean(green2).val[0], 0, THRESH_TRUNC);
 //     threshold(blue2, blue2, 2.5*mean(blue2).val[0], 0, THRESH_TRUNC);
-
 
     max(red, green, tmp);
     max(blue, tmp, tmp);
@@ -137,27 +150,12 @@ void ShowRatModule::run( DataManager& data) const
 //    channels.push_back(red2.clone());
 
     // merge color planes to image
-
     merge(channels, colImg_small);
     // NOTE: SPECKLE-REDUCED IMAGE MIGHT BE SMALLER THAN ORIGINAL IMAGE ==> re-size!!
-
     resize(colImg_small, colImg, Size(cov.at(0).cols, cov.at(0).rows));
 
-    data.setOutputData("image", new Matrix(colImg));
-
-    Mat grad_x, grad_y, amp, angle, binary, binary1;
-    int scale = 1;
-    int delta = 0;
-    
-    Sobel(colImg, grad_x, -1, 1, 0, CV_SCHARR);
-    Sobel(colImg, grad_y, -1, 0, 1, CV_SCHARR);
-    cartToPolar(grad_x, grad_y, amp, angle);
-    binary1 = amp > 0.5*mean(amp).val[0];
-
-    binary.push_back(binary1.clone());
-
-    data.setOutputData("image2", new Matrix(binary));
-      
+    // set the result (output) on the datamanager
+    data.setOutputData("image",new Matrix(colImg));
 }
 
 MetaData ShowRatModule::getMetaData() const
@@ -166,8 +164,7 @@ MetaData ShowRatModule::getMetaData() const
         {"channels", DataDescription(MATRIX_LIST, "the image channel list.") }
     };
     map<string, DataDescription> output = {
-        {"image", DataDescription(MATRIX, "the image as a result from the merge.") },
-        {"image2", DataDescription(MATRIX, "the image as a result from the merge.") }
+        {"image", DataDescription(MATRIX, "the image as a result from the merge.") }
     };
 	map<string, ParamDescription> params = {};
 

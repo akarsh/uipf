@@ -8,14 +8,7 @@ Show Rat:
 show image:
   module: showImage
   input:
-    image: Show Rat.image2
-  autoclose: ""
-  blocking: ""
-  title: ""
-show image2:
-  module: showImageTwo
-  input:
-    image_2: Show Rat.image2
+    image: Show Rat.image
   autoclose: ""
   blocking: ""
   title: ""
